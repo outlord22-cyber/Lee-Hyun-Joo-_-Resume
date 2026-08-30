@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>현주 | Plasma Process Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F7F9;
+    --surface:#FFFFFF;
+    --text:#14171C;
+    --text-muted:#5B6270;
+    --line:#E3E5EA;
+    --accent:#7C6FE0;      /* Ar plasma - Cleaning */
+    --accent-soft:#EEEBFB;
+    --dep:#E0916F;         /* O2 precursor plasma - Deposition */
+    --dep-soft:#FBEDE6;
+    --etch:#4FB3AE;        /* Fluorocarbon plasma - Etching */
+    --etch-soft:#E7F5F4;
+    --radius:14px;
+    --maxw:1040px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans KR', sans-serif;
+    font-weight:400;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  /* NAV */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,247,249,0.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-name{font-weight:600; font-size:15px; letter-spacing:0.01em;}
+  .nav-links{display:flex; gap:22px; font-size:13.5px; color:var(--text-muted);}
+  .nav-links a{text-decoration:none; transition:color .15s ease;}
+  .nav-links a:hover{color:var(--text);}
+  .gas-legend{display:flex; gap:10px; align-items:center;}
+  .gas-dot{width:7px;height:7px;border-radius:50%; display:inline-block;}
+  @media (max-width:720px){ .nav-links{display:none;} }
+
+  /* HERO */
+  .hero{padding:96px 0 72px; position:relative; overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center;}
+  @media (max-width:860px){ .hero-grid{grid-template-columns:1fr;} }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--accent);
+    letter-spacing:0.06em; margin-bottom:18px; display:flex; align-items:center; gap:8px;
+  }
+  .eyebrow::before{content:''; width:16px; height:1px; background:var(--accent);}
+  h1.title{
+    font-size:clamp(34px,5vw,54px); font-weight:700; letter-spacing:-0.02em;
+    margin:0 0 18px; line-height:1.15;
+  }
+  h1.title .thin{font-weight:300; color:var(--text-muted); display:block; font-size:0.5em; margin-top:6px; letter-spacing:0;}
+  .lede{font-size:16.5px; color:var(--text-muted); max-width:52ch; margin:0 0 30px;}
+  .cta-row{display:flex; gap:12px; flex-wrap:wrap;}
+  .btn{
+    padding:12px 20px; border-radius:9px; font-size:14px; font-weight:500;
+    text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{background:var(--text); color:#fff;}
+  .btn-primary:hover{transform:translateY(-1px); box-shadow:0 6px 16px rgba(20,23,28,0.18);}
+  .btn-ghost{border:1px solid var(--line); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--text); transform:translateY(-1px);}
+
+  /* HMI readout card */
+  .hmi{
+    background:#14171C; color:#E7E9EE; border-radius:var(--radius);
+    padding:22px 22px 18px; font-family:'IBM Plex Mono', monospace;
+    box-shadow:0 20px 50px rgba(20,23,28,0.22);
+  }
+  .hmi-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;}
+  .hmi-head span{font-size:11px; color:#8A93A8; letter-spacing:0.08em;}
+  .hmi-dots{display:flex; gap:6px;}
+  .hmi-dots i{width:7px;height:7px;border-radius:50%; background:#3A3F4B; display:block;}
+  .hmi-line{font-size:12.5px; padding:6px 0; border-bottom:1px dashed #2A2E38; display:flex; justify-content:space-between; opacity:0; animation:fadein .5s ease forwards;}
+  .hmi-line:last-child{border-bottom:none;}
+  .hmi-line b{color:#fff; font-weight:500;}
+  .hmi-val{color:var(--accent-run,#9C90F0);}
+  @keyframes fadein{to{opacity:1;}}
+
+  section{padding:64px 0; border-top:1px solid var(--line);}
+  .section-head{display:flex; align-items:baseline; gap:14px; margin-bottom:34px;}
+  .section-num{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--text-muted);}
+  h2.section-title{font-size:22px; font-weight:600; margin:0; letter-spacing:-0.01em;}
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+
+  /* EXPERIENCE */
+  .exp-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:30px 30px 26px;
+  }
+  .exp-top{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; margin-bottom:6px;}
+  .exp-co{font-size:18px; font-weight:600;}
+  .exp-role{color:var(--text-muted); font-size:14.5px;}
+  .exp-date{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--text-muted); white-space:nowrap;}
+  .exp-desc{color:var(--text-muted); font-size:14.5px; margin:14px 0 20px; max-width:64ch;}
+  .step-row{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
+  @media (max-width:640px){ .step-row{grid-template-columns:1fr;} }
+  .step{
+    border-radius:10px; padding:14px 14px 12px; border:1px solid var(--line);
+  }
+  .step .step-tag{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:6px; display:inline-block;}
+  .step .step-gas{font-size:12px; color:var(--text-muted); margin-bottom:8px;}
+  .step p{margin:0; font-size:13.5px; color:var(--text);}
+  .step.clean{background:var(--accent-soft);} .step.clean .step-tag{color:var(--accent);}
+  .step.dep{background:var(--dep-soft);} .step.dep .step-tag{color:var(--dep);}
+  .step.etch{background:var(--etch-soft);} .step.etch .step-tag{color:var(--etch);}
+
+  /* PROJECTS */
+  .proj-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media (max-width:760px){ .proj-grid{grid-template-columns:1fr;} }
+  .proj-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px; display:flex; flex-direction:column; gap:14px;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .proj-card:hover{border-color:var(--accent); transform:translateY(-2px);}
+  .proj-tag{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--accent); letter-spacing:0.05em;}
+  .proj-card h3{margin:0; font-size:17px; font-weight:600;}
+  .proj-card p{margin:0; font-size:14px; color:var(--text-muted);}
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:auto;}
+  .chip{font-size:12px; padding:5px 10px; border-radius:100px; background:var(--bg); border:1px solid var(--line); color:var(--text-muted); font-family:'IBM Plex Mono', monospace;}
+
+  /* SKILLS */
+  .skill-groups{display:grid; grid-template-columns:repeat(2,1fr); gap:28px;}
+  @media (max-width:640px){ .skill-groups{grid-template-columns:1fr;} }
+  .skill-group h4{margin:0 0 12px; font-size:13px; color:var(--text-muted); font-weight:500; letter-spacing:0.02em;}
+  .skill-chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .skill-chip{font-size:13px; padding:7px 12px; border-radius:9px; background:var(--surface); border:1px solid var(--line);}
+
+  /* EDUCATION timeline */
+  .edu-item{display:grid; grid-template-columns:120px 1fr; gap:20px; padding:16px 0; border-bottom:1px solid var(--line);}
+  .edu-item:last-child{border-bottom:none;}
+  .edu-date{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--text-muted); padding-top:2px;}
+  .edu-item h4{margin:0 0 4px; font-size:15.5px; font-weight:600;}
+  .edu-item p{margin:0; font-size:13.5px; color:var(--text-muted);}
+
+  /* CONTACT / FOOTER */
+  .contact-box{
+    background:var(--text); color:#fff; border-radius:20px; padding:48px 40px;
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px; align-items:center;
+  }
+  .contact-box h2{margin:0 0 8px; font-size:24px; font-weight:600;}
+  .contact-box p{margin:0; color:#A9AEBB; font-size:14px; max-width:40ch;}
+  .contact-links{display:flex; gap:12px; flex-wrap:wrap;}
+  .contact-links a{
+    border:1px solid #383D48; padding:11px 18px; border-radius:9px; font-size:13.5px;
+    text-decoration:none; transition:background .15s ease;
+  }
+  .contact-links a:hover{background:#1F232B;}
+  footer{padding:26px 0 50px; text-align:center; color:var(--text-muted); font-size:12.5px;}
+
+  .note{font-size:11.5px; color:var(--text-muted); margin-top:10px; font-family:'IBM Plex Mono', monospace;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+    .hmi-line{opacity:1; animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-name">현주<span class="mono" style="color:var(--text-muted); font-weight:400;">.eng</span></div>
+    <nav class="nav-links">
+      <a href="#experience">경력</a>
+      <a href="#projects">프로젝트</a>
+      <a href="#skills">스킬</a>
+      <a href="#education">학력</a>
+      <a href="#contact">연락처</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">PLASMA PROCESS ENGINEER · REMOTE PLASMA GENERATOR</div>
+      <h1 class="title">공정을 이해하는 엔지니어,<span class="thin">이제는 장비를 설계하는 쪽으로</span></h1>
+      <p class="lede">
+        뉴파워프라즈마에서 Cleaning · Deposition · Etching 3개 공정을 동시에 담당하며
+        Remote Plasma Generator 기반 장비의 공정 조건을 평가·개선해왔습니다.
+        공정 엔지니어 경험을 바탕으로 장비 설계·개발 직무로 이직을 준비하고 있습니다.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#contact">연락하기</a>
+        <a class="btn btn-ghost" href="#projects">프로젝트 보기</a>
+      </div>
+    </div>
+    <div class="hmi">
+      <div class="hmi-head">
+        <span>RECIPE_LOG — NPP_RPG_01</span>
+        <div class="hmi-dots"><i></i><i></i><i></i></div>
+      </div>
+      <div class="hmi-line" style="animation-delay:.1s"><span>STEP 01</span><b class="hmi-val">CLEANING · Ar Plasma</b></div>
+      <div class="hmi-line" style="animation-delay:.3s"><span>STEP 02</span><b class="hmi-val">DEPOSITION · Precursor</b></div>
+      <div class="hmi-line" style="animation-delay:.5s"><span>STEP 03</span><b class="hmi-val">ETCHING · Fluorocarbon</b></div>
+      <div class="hmi-line" style="animation-delay:.7s"><span>JOINED</span><b>2023.12.11</b></div>
+      <div class="hmi-line" style="animation-delay:.9s"><span>STATUS</span><b style="color:#8FE0C4;">OPEN TO EQUIPMENT R&amp;D</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">01</span>
+      <h2 class="section-title">경력</h2>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-top">
+        <div>
+          <div class="exp-co">뉴파워프라즈마 (NewPower Plasma)</div>
+          <div class="exp-role">Process Engineer · Remote Plasma Generator 공정 평가</div>
+        </div>
+        <div class="exp-date">2023.12.11 — 재직 중</div>
+      </div>
+      <p class="exp-desc">
+        Remote Plasma Generator를 제조하는 장비사에 공급되는 플라즈마 소스의 공정 성능을 평가하고,
+        고객사 요구 조건에 맞춰 Cleaning · Deposition · Etching 세 공정 영역의 조건을 설정·검증하는 업무를 담당하고 있습니다.
+      </p>
+      <div class="step-row">
+        <div class="step clean">
+          <span class="step-tag">Cleaning</span>
+          <div class="step-gas">Ar Plasma</div>
+          <p>챔버·부품 표면 세정 공정 평가 및 조건 최적화</p>
+        </div>
+        <div class="step dep">
+          <span class="step-tag">Deposition</span>
+          <div class="step-gas">Precursor + O₂</div>
+          <p>박막 증착 공정 평가 및 균일도 개선</p>
+        </div>
+        <div class="step etch">
+          <span class="step-tag">Etching</span>
+          <div class="step-gas">Fluorocarbon</div>
+          <p>식각 공정 평가 및 장비별 레시피 대응</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">02</span>
+      <h2 class="section-title">프로젝트</h2>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card reveal">
+        <span class="proj-tag">PYTHON · VIBE CODING</span>
+        <h3>평가 의뢰서 표준화 도구</h3>
+        <p>
+          고객사·부서마다 양식이 제각각인 엑셀 평가 의뢰서를 하나의 공정 조건 데이터베이스로
+          자동 표준화하는 개인 개발 도구입니다. 반복적인 수기 정리 업무를 코드로 대체하며
+          공정 데이터를 직접 다루는 역량을 기르기 위해 시작했습니다.
+        </p>
+        <div class="chip-row">
+          <span class="chip">Python</span>
+          <span class="chip">Excel 자동화</span>
+          <span class="chip">공정 DB</span>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="proj-tag">GRADUATE RESEARCH</span>
+        <h3>역구조 플라즈마 챔버 연구</h3>
+        <p>
+          한양대학교 정진욱 교수님 Plasma Electronics Lab에서 진행 중인 연구로,
+          챔버 구조를 역방향으로 설계해 파티클 발생을 저감하는 방안을 다룹니다.
+          현장 공정 경험을 실제 장비 구조 설계 관점으로 확장하는 작업입니다.
+        </p>
+        <div class="chip-row">
+          <span class="chip">Plasma Chamber</span>
+          <span class="chip">Particle Reduction</span>
+          <span class="chip">한양대 대학원</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">03</span>
+      <h2 class="section-title">스킬</h2>
+    </div>
+    <div class="skill-groups reveal">
+      <div class="skill-group">
+        <h4>공정 / 장비</h4>
+        <div class="skill-chip-row">
+          <span class="skill-chip">Plasma Cleaning</span>
+          <span class="skill-chip">Deposition</span>
+          <span class="skill-chip">Etching</span>
+          <span class="skill-chip">Remote Plasma Generator</span>
+          <span class="skill-chip">공정 조건 평가</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>데이터 / 자동화</h4>
+        <div class="skill-chip-row">
+          <span class="skill-chip">Python</span>
+          <span class="skill-chip">Excel</span>
+          <span class="skill-chip">공정 데이터 정리</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">04</span>
+      <h2 class="section-title">학력</h2>
+    </div>
+    <div class="reveal">
+      <div class="edu-item">
+        <div class="edu-date">진행 중</div>
+        <div>
+          <h4>한양대학교 대학원 · Plasma Electronics Lab</h4>
+          <p>정진욱 교수님 지도 · 역구조 플라즈마 챔버 파티클 저감 연구</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-date">편입</div>
+        <div>
+          <h4>한국공학대학교 · 컴퓨터공학</h4>
+          <p>3학년 편입</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-date">이전</div>
+        <div>
+          <h4>한신대학교 · 철학</h4>
+          <p>초기 전공</p>
+        </div>
+      </div>
+    </div>
+    <p class="note">※ 정확한 재학·졸업 연도는 직접 채워 넣어주세요.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <div>
+        <h2>같이 이야기 나눠요</h2>
+        <p>장비 설계·개발 직무 관련 제안이나 궁금하신 점은 언제든 편하게 연락 주세요.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:your.email@example.com">이메일</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+    <p class="note">※ 이메일 주소와 링크는 본인 정보로 교체해주세요.</p>
+  </div>
+</section>
+
+<footer>© 2026 현주. Built for career transition into equipment R&amp;D.</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:0.15});
+  reveals.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
