@@ -243,8 +243,8 @@
   }
   .track-card p{margin:10px 0 0; font-size:14px; color:var(--text-muted);}
 
-  .fab-visual{display:grid; grid-template-columns:260px 1fr; gap:36px; align-items:start; margin-bottom:28px;}
-  @media (max-width:760px){ .fab-visual{grid-template-columns:1fr;} }
+  .fab-visual{display:grid; grid-template-columns:360px 1fr; gap:36px; align-items:start; margin-bottom:28px;}
+  @media (max-width:860px){ .fab-visual{grid-template-columns:1fr;} }
   .fab-svg svg{width:100%; height:auto; display:block;}
   .fab-desc{display:flex; flex-direction:column; gap:20px;}
   .fab-desc-item p{margin:0; font-size:14px; color:var(--text-muted);}
@@ -290,8 +290,8 @@
     <div class="nav-name">이현주<span class="mono" style="color:var(--text-muted); font-weight:400;">.eng</span></div>
     <nav class="nav-links">
       <a href="#system">핵심 스킬</a>
-      <a href="#experience">경력</a>
-      <a href="#projects">프로젝트</a>
+      <a href="#experience">Main 경력</a>
+      <a href="#projects">Sub 프로젝트</a>
       <a href="#education">학력</a>
       <a href="#skills">분석 스킬</a>
       <a href="#contact">연락처</a>
@@ -304,8 +304,8 @@
     <div>
       <nav class="mini-toc reveal">
         <a href="#system">핵심 보유 스킬</a>
-        <a href="#experience">경력</a>
-        <a href="#projects">프로젝트</a>
+        <a href="#experience">Main 경력</a>
+        <a href="#projects">Sub 프로젝트</a>
         <a href="#education">학력</a>
         <a href="#skills">분석 스킬</a>
       </nav>
@@ -350,20 +350,23 @@
       <span class="section-num">01</span>
       <h2 class="section-title">핵심 보유 스킬</h2>
     </div>
-    <p style="color:var(--text-muted); font-size:14.5px; max-width:70ch; margin:-16px 0 28px;">
-      RPS 제품을 직접 만드는 엔지니어로서, Radical·Ion 거동 제어부터 NF₃/O₂/N₂ Cleaning, CNT 기반 Si Deposition,
-      Glass TGV Etching, 배관 Conductance 설계까지 — Plasma 반응의 원리 이해부터 실제 하드웨어 구현까지 전 영역을 다뤄왔습니다.
+    <p style="color:var(--text-muted); font-size:14.5px; margin:-16px 0 28px;">
+      Remote Plasma Generator Source 개발에 참여하여 Plasma 내 Radical·Ion 거동 및 반응 특성 분석부터
+      Cleaning, CNT 기반 Si Deposition, Glass TGV Etching 공정 개발, Vacuum Line Conductance 설계까지
+      수행했습니다. RF Impedance 분석 기반 고객사 트러블슈팅, Etch Rate 표준 가이드라인(SOP) 수립, COMSOL
+      Multiphysics를 활용한 Reverse-Structure Chamber 설계, 공정 데이터 자동화 Tool 개발까지 — Plasma
+      Chemistry에 대한 이해를 실제 Hardware·Vacuum System 구현과 데이터 기반 문제 해결로 연결해왔습니다.
     </p>
     <div class="track-card reveal">
       <span class="fab-badge" style="background:var(--accent-soft); color:var(--accent);">PROCESS ENGINEER TRACK</span>
-      <p>대학 캡스톤(MEMS 가스 센서 개발) → 두산모빌리티이노베이션(연료전지 성능평가) → 뉴파워프라즈마(RPS Cleaning·Deposition·Etching)로 이어지며, 현장에서 직접 손으로 검증하는 공정기술엔지니어로 성장해왔습니다.</p>
+      <p>MEMS 기반 H₂ 검출 가스 센서 개발(졸업논문) → 두산모빌리티이노베이션(연료전지 성능평가) → 뉴파워프라즈마 → 한양대 대학원 플라즈마 연구실 재학</p>
     </div>
     <div class="fab-visual reveal">
       <div class="fab-svg">
-        <svg viewBox="0 0 300 530" xmlns="http://www.w3.org/2000/svg">
-          <rect x="30" y="20" width="210" height="480" rx="10" style="fill:var(--surface); stroke:var(--line); stroke-width:1.5"/>
-          <line x1="30" y1="180" x2="240" y2="180" style="stroke:var(--line); stroke-width:1.5"/>
-          <line x1="30" y1="340" x2="240" y2="340" style="stroke:var(--line); stroke-width:1.5"/>
+        <svg viewBox="0 0 400 530" xmlns="http://www.w3.org/2000/svg">
+          <rect x="30" y="20" width="300" height="480" rx="10" style="fill:var(--surface); stroke:var(--line); stroke-width:1.5"/>
+          <line x1="30" y1="180" x2="330" y2="180" style="stroke:var(--line); stroke-width:1.5"/>
+          <line x1="30" y1="340" x2="330" y2="340" style="stroke:var(--line); stroke-width:1.5"/>
           <rect x="30" y="20"  width="5" height="160" rx="2" style="fill:var(--dep)"/>
           <rect x="30" y="180" width="5" height="160" rx="2" style="fill:var(--etch)"/>
           <rect x="30" y="340" width="5" height="160" rx="2" style="fill:var(--accent)"/>
@@ -372,89 +375,107 @@
           <text x="50" y="48" style="font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:600; fill:var(--dep);">3F</text>
           <text x="50" y="66" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:11px; fill:var(--text-muted);">Process Engineer</text>
 
-          <circle cx="65" cy="110" r="16" style="fill:var(--dep-soft); stroke:var(--dep); stroke-width:1.5"/>
-          <path d="M57,110 L63,116 L75,100" style="fill:none; stroke:var(--dep); stroke-width:2; stroke-linecap:round; stroke-linejoin:round"/>
-          <text x="65" y="145" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--text-muted);">Customer</text>
-          <text x="65" y="157" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--text-muted);">Troubleshooting</text>
+          <g transform="translate(5,0)">
+            <circle cx="65" cy="110" r="16" style="fill:var(--dep-soft); stroke:var(--dep); stroke-width:1.5"/>
+            <path d="M57,110 L63,116 L75,100" style="fill:none; stroke:var(--dep); stroke-width:2; stroke-linecap:round; stroke-linejoin:round"/>
+            <text x="65" y="145" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--text-muted);">Customer</text>
+            <text x="65" y="157" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--text-muted);">Troubleshooting</text>
+          </g>
 
-          <circle cx="120" cy="110" r="16" style="fill:var(--dep-soft); stroke:var(--dep); stroke-width:1.5"/>
-          <line x1="120" y1="110" x2="129" y2="99" style="stroke:var(--dep); stroke-width:2; stroke-linecap:round"/>
-          <circle cx="120" cy="110" r="2" style="fill:var(--dep)"/>
-          <text x="120" y="145" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--text-muted);">Process</text>
-          <text x="120" y="157" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--text-muted);">Evaluation</text>
+          <g transform="translate(30,0)">
+            <circle cx="120" cy="110" r="16" style="fill:var(--dep-soft); stroke:var(--dep); stroke-width:1.5"/>
+            <line x1="120" y1="110" x2="129" y2="99" style="stroke:var(--dep); stroke-width:2; stroke-linecap:round"/>
+            <circle cx="120" cy="110" r="2" style="fill:var(--dep)"/>
+            <text x="120" y="145" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--text-muted);">Process</text>
+            <text x="120" y="157" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--text-muted);">Evaluation</text>
+          </g>
 
-          <rect x="165" y="94" width="20" height="32" rx="2" style="fill:var(--surface); stroke:var(--dep); stroke-width:1.5"/>
-          <line x1="169" y1="102" x2="181" y2="102" style="stroke:var(--dep); stroke-width:1.2"/>
-          <line x1="169" y1="110" x2="181" y2="110" style="stroke:var(--dep); stroke-width:1.2"/>
-          <line x1="169" y1="118" x2="181" y2="118" style="stroke:var(--dep); stroke-width:1.2"/>
-          <text x="175" y="145" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--text-muted);">Recipe</text>
-          <text x="175" y="157" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--text-muted);">Development</text>
+          <g transform="translate(55,0)">
+            <rect x="165" y="94" width="20" height="32" rx="2" style="fill:var(--surface); stroke:var(--dep); stroke-width:1.5"/>
+            <line x1="169" y1="102" x2="181" y2="102" style="stroke:var(--dep); stroke-width:1.2"/>
+            <line x1="169" y1="110" x2="181" y2="110" style="stroke:var(--dep); stroke-width:1.2"/>
+            <line x1="169" y1="118" x2="181" y2="118" style="stroke:var(--dep); stroke-width:1.2"/>
+            <text x="175" y="145" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--text-muted);">Recipe</text>
+            <text x="175" y="157" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--text-muted);">Development</text>
+          </g>
 
-          <rect x="211" y="116" width="6" height="10" style="fill:var(--dep)"/>
-          <rect x="219" y="108" width="6" height="18" style="fill:var(--dep)"/>
-          <rect x="227" y="100" width="6" height="26" style="fill:var(--dep)"/>
-          <text x="222" y="145" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--text-muted);">Root Cause</text>
-          <text x="222" y="157" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--text-muted);">Analysis</text>
+          <g transform="translate(83,0)">
+            <rect x="211" y="116" width="6" height="10" style="fill:var(--dep)"/>
+            <rect x="219" y="108" width="6" height="18" style="fill:var(--dep)"/>
+            <rect x="227" y="100" width="6" height="26" style="fill:var(--dep)"/>
+            <text x="222" y="145" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--text-muted);">Root Cause</text>
+            <text x="222" y="157" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--text-muted);">Analysis</text>
+          </g>
 
           <!-- 2F : FAB / Equipment / Plasma -->
           <text x="50" y="208" style="font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:600; fill:var(--etch);">2F</text>
           <text x="50" y="226" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:11px; fill:var(--text-muted);">FAB · Cleanroom</text>
 
-          <!-- equipment body (centered) -->
-          <rect x="93" y="240" width="90" height="50" rx="6" style="fill:var(--etch-soft); stroke:var(--etch); stroke-width:1.5"/>
-          <!-- inlet flange (left) -->
-          <rect x="78" y="259" width="15" height="12" rx="2" style="fill:var(--surface); stroke:var(--etch); stroke-width:1.4"/>
-          <!-- outlet port (top) -->
-          <rect x="128" y="233" width="20" height="7" rx="2" style="fill:var(--surface); stroke:var(--etch); stroke-width:1.4"/>
-          <!-- top electrode -->
-          <rect x="101" y="246" width="74" height="5" rx="2" style="fill:var(--etch)"/>
-          <!-- plasma glow: dissociated into radicals / ions / electrons -->
-          <circle cx="118" cy="256" r="2.8" style="fill:var(--etch); opacity:.85"/>
-          <circle cx="140" cy="252" r="2.3" style="fill:var(--etch); opacity:.6"/>
-          <circle cx="156" cy="262" r="2"   style="fill:var(--etch); opacity:.5"/>
-          <circle cx="128" cy="268" r="2.3" style="fill:var(--etch); opacity:.7"/>
-          <circle cx="148" cy="274" r="1.8" style="fill:var(--etch); opacity:.4"/>
-          <circle cx="165" cy="258" r="1.8" style="fill:var(--etch); opacity:.55"/>
-          <!-- wafer / susceptor -->
-          <rect x="101" y="278" width="74" height="5" rx="2" style="fill:var(--text-muted); opacity:.45"/>
-          <!-- stand legs -->
-          <line x1="112" y1="290" x2="112" y2="300" style="stroke:var(--etch); stroke-width:3; stroke-linecap:round"/>
-          <line x1="164" y1="290" x2="164" y2="300" style="stroke:var(--etch); stroke-width:3; stroke-linecap:round"/>
+          <g transform="translate(42,0)">
+            <!-- equipment body (centered) -->
+            <rect x="93" y="240" width="90" height="50" rx="6" style="fill:var(--etch-soft); stroke:var(--etch); stroke-width:1.5"/>
+            <!-- inlet flange (left) -->
+            <rect x="78" y="259" width="15" height="12" rx="2" style="fill:var(--surface); stroke:var(--etch); stroke-width:1.4"/>
+            <!-- outlet port (top) -->
+            <rect x="128" y="233" width="20" height="7" rx="2" style="fill:var(--surface); stroke:var(--etch); stroke-width:1.4"/>
+            <!-- top electrode -->
+            <rect x="101" y="246" width="74" height="5" rx="2" style="fill:var(--etch)"/>
+            <!-- plasma glow: dissociated into radicals / ions / electrons -->
+            <circle cx="118" cy="256" r="2.8" style="fill:var(--etch); opacity:.85"/>
+            <circle cx="140" cy="252" r="2.3" style="fill:var(--etch); opacity:.6"/>
+            <circle cx="156" cy="262" r="2"   style="fill:var(--etch); opacity:.5"/>
+            <circle cx="128" cy="268" r="2.3" style="fill:var(--etch); opacity:.7"/>
+            <circle cx="148" cy="274" r="1.8" style="fill:var(--etch); opacity:.4"/>
+            <circle cx="165" cy="258" r="1.8" style="fill:var(--etch); opacity:.55"/>
+            <!-- wafer / susceptor -->
+            <rect x="101" y="278" width="74" height="5" rx="2" style="fill:var(--text-muted); opacity:.45"/>
+            <!-- stand legs -->
+            <line x1="112" y1="290" x2="112" y2="300" style="stroke:var(--etch); stroke-width:3; stroke-linecap:round"/>
+            <line x1="164" y1="290" x2="164" y2="300" style="stroke:var(--etch); stroke-width:3; stroke-linecap:round"/>
 
-          <text x="138" y="313" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:9px; fill:var(--text-muted);">Equipment</text>
-          <text x="138" y="326" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--etch);">Radical · Ion · e⁻ (Plasma)</text>
+            <text x="138" y="313" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:9px; fill:var(--text-muted);">Equipment</text>
+            <text x="138" y="326" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8px; fill:var(--etch);">Radical · Ion · e⁻ (Plasma)</text>
+          </g>
 
           <!-- 1F : Sub-Fab -->
           <text x="50" y="368" style="font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:600; fill:var(--accent);">1F</text>
           <text x="50" y="386" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:11px; fill:var(--text-muted);">Sub-Fab · Return Plenum</text>
 
-          <circle cx="75" cy="440" r="16" style="fill:var(--accent-soft); stroke:var(--accent); stroke-width:1.5"/>
-          <text x="75" y="480" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8.5px; fill:var(--text-muted);">Pump</text>
+          <g transform="translate(-5,0)">
+            <circle cx="75" cy="440" r="16" style="fill:var(--accent-soft); stroke:var(--accent); stroke-width:1.5"/>
+            <text x="75" y="480" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8.5px; fill:var(--text-muted);">Pump</text>
+          </g>
 
-          <rect x="112" y="424" width="16" height="32" rx="3" style="fill:var(--surface); stroke:var(--accent); stroke-width:1.5"/>
-          <line x1="114" y1="432" x2="126" y2="432" style="stroke:var(--accent); stroke-width:1"/>
-          <line x1="114" y1="440" x2="126" y2="440" style="stroke:var(--accent); stroke-width:1"/>
-          <line x1="114" y1="448" x2="126" y2="448" style="stroke:var(--accent); stroke-width:1"/>
-          <text x="120" y="480" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8.5px; fill:var(--text-muted);">Scrubber</text>
+          <g transform="translate(30,0)">
+            <rect x="112" y="424" width="16" height="32" rx="3" style="fill:var(--surface); stroke:var(--accent); stroke-width:1.5"/>
+            <line x1="114" y1="432" x2="126" y2="432" style="stroke:var(--accent); stroke-width:1"/>
+            <line x1="114" y1="440" x2="126" y2="440" style="stroke:var(--accent); stroke-width:1"/>
+            <line x1="114" y1="448" x2="126" y2="448" style="stroke:var(--accent); stroke-width:1"/>
+            <text x="120" y="480" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8.5px; fill:var(--text-muted);">Scrubber</text>
+          </g>
 
-          <rect x="157" y="428" width="16" height="28" rx="6" style="fill:var(--accent-soft); stroke:var(--accent); stroke-width:1.5"/>
-          <circle cx="165" cy="422" r="4" style="fill:var(--surface); stroke:var(--accent); stroke-width:1.5"/>
-          <text x="165" y="480" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8.5px; fill:var(--text-muted);">Gas</text>
+          <g transform="translate(65,0)">
+            <rect x="157" y="428" width="16" height="28" rx="6" style="fill:var(--accent-soft); stroke:var(--accent); stroke-width:1.5"/>
+            <circle cx="165" cy="422" r="4" style="fill:var(--surface); stroke:var(--accent); stroke-width:1.5"/>
+            <text x="165" y="480" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8.5px; fill:var(--text-muted);">Gas</text>
+          </g>
 
-          <path d="M210,424 L210,440 L226,440" style="fill:none; stroke:var(--accent); stroke-width:4; stroke-linecap:round; stroke-linejoin:round"/>
-          <line x1="210" y1="424" x2="218" y2="424" style="stroke:var(--accent); stroke-width:2"/>
-          <line x1="226" y1="440" x2="226" y2="448" style="stroke:var(--accent); stroke-width:2"/>
-          <text x="216" y="480" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8.5px; fill:var(--text-muted);">Piping</text>
+          <g transform="translate(89,0)">
+            <path d="M210,424 L210,440 L226,440" style="fill:none; stroke:var(--accent); stroke-width:4; stroke-linecap:round; stroke-linejoin:round"/>
+            <line x1="210" y1="424" x2="218" y2="424" style="stroke:var(--accent); stroke-width:2"/>
+            <line x1="226" y1="440" x2="226" y2="448" style="stroke:var(--accent); stroke-width:2"/>
+            <text x="216" y="480" text-anchor="middle" style="font-family:'IBM Plex Sans KR',sans-serif; font-size:8.5px; fill:var(--text-muted);">Piping</text>
+          </g>
         </svg>
       </div>
       <div class="fab-desc">
         <div class="fab-desc-item dep">
           <span class="fab-badge">3F · Process Engineer</span>
-          <p>고객사 트러블슈팅과 NF₃ Clean Rate·Etch Rate 등 공정 결과 기반 Root Cause Analysis를 수행하고, COMSOL Multiphysics로 Particle Flow까지 분석해 데이터 기반으로 문제를 해결합니다.</p>
+          <p>고객사 Troubleshooting 과정에서 공정 데이터와 장비 상태를 기반으로 Hardware–Equipment–Process 간 상관관계를 분석하여 Root Cause를 규명합니다. 정량적 공정 결과와 장비 Parameter를 연계 분석해 데이터 기반의 문제 해결 역량을 보유하고 있습니다.</p>
         </div>
         <div class="fab-desc-item etch">
           <span class="fab-badge">2F · FAB (Cleanroom)</span>
-          <p>RPS·PPS 제품이 설치되는 생산 라인 레벨. NF₃/O₂/N₂ Cleaning, CNT 표면 Si Nodular Deposition, Glass TGV Pulsed Plasma Etching까지 칩메이커·장비사별 요구 조건에 맞춰 레시피를 설계·검증합니다.</p>
+          <p>NF₃/O₂/N₂ Cleaning, CNT 표면 Si Nodular Deposition, Glass TGV Pulsed Plasma Etching까지 칩메이커·장비사별 요구 조건에 맞춰 레시피를 설계·검증합니다.</p>
         </div>
         <div class="fab-desc-item accent">
           <span class="fab-badge">1F · Sub-Fab (Return Plenum)</span>
@@ -488,7 +509,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="section-num">02</span>
-      <h2 class="section-title">경력</h2>
+      <h2 class="section-title">Main 경력</h2>
     </div>
     <div class="exp-card reveal">
       <div class="exp-top">
@@ -553,26 +574,70 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="section-num">03</span>
-      <h2 class="section-title">프로젝트</h2>
+      <h2 class="section-title">Sub 프로젝트</h2>
     </div>
     <div class="proj-grid">
       <div class="proj-card reveal">
-        <span class="proj-tag">PYTHON · PANDAS</span>
-        <h3>1. AI 활용 기술 : 공정 Data 자동화</h3>
+        <span class="proj-tag">CUSTOMER TROUBLESHOOTING</span>
+        <h3>1. S사 Plasma Source 분해 성능 저하 이슈 해결</h3>
         <p>
-          부서별로 상이한 Excel 공정 평가 데이터를 표준화된 데이터베이스로 자동 변환하는 Tool을 개발했습니다.
-          다양한 양식에서 Power, Pressure, Gas, Dissociation Ratio 등 핵심 공정 Parameter를 자동 추출·정규화하고,
-          Parameter별 Trend Graph까지 자동 생성하여 데이터 정리 및 분석 효율을 향상시켰습니다.
+          S사 공정 라인에 도입된 Plasma Source의 분해 성능 저하 이슈를 해결하는 과정에서 고객사의 니즈를 파악하고,
+          유관 부서와의 협업을 주도하여 제품 재납품을 성공시켰습니다. 고객사는 빠른 원인 규명과 대처를 요구했고,
+          사내에서는 원인을 두고 부서 간 이견이 갈렸습니다. 저는 한쪽 의견에 치우치기보다 고객사가 납득할 수 있는
+          객관적 데이터 확보에 집중하며 다음 프로세스를 주도했습니다.
+        </p>
+        <ul class="point-list" style="margin:0 0 4px;">
+          <li>RF Matcher와 Load 사이의 임피던스를 측정하여 Plasma에 전달되는 유효 전력 손실 분석</li>
+          <li>Ferrite Core에 TC를 부착해 가동 시간에 따른 온도 변화를 모니터링, 내부 발열에 의한 Plasma 포화도 저하 확인</li>
+          <li>O₂ Passivation을 통해 식각 가스 노출에 따른 코팅 손상 여부 분석</li>
+        </ul>
+        <p>
+          분석 결과 지속 가동 시 발생하는 내부 발열이 공정 결과에 영향을 미쳤음을 규명했고, 고객사 담당자들과
+          기술 미팅을 진행하며 개선된 레시피와 하드웨어 보완책을 제시해 재납품을 성공시켰습니다.
         </p>
         <div class="chip-row">
-          <span class="chip">Python</span>
-          <span class="chip">Pandas</span>
-          <span class="chip">Excel 자동화</span>
+          <span class="chip">RF Impedance Matching</span>
+          <span class="chip">Root Cause Analysis</span>
+          <span class="chip">고객사 기술 미팅</span>
+          <span class="chip">재납품 성공</span>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="proj-tag">PROCESS STANDARDIZATION</span>
+        <h3>2. Chamber 특성 최적화 및 Etch Rate 표준 가이드라인 정립</h3>
+        <ul class="point-list" style="margin:0 0 4px;">
+          <li>목표: 실험 환경 변수 통제 및 표준 평가 절차 수립으로 공정 데이터 신뢰성 확보 (Etch Rate 오차 ±100Å 이내 달성)</li>
+          <li>챔버 구조적 한계로 인한 공정 재현성 저하 문제를 확인하고, 3종 제품군을 대상으로 90회 이상 반복 평가를 수행해 챔버 상태별 데이터 경향성을 확보</li>
+          <li>Step별 Aging 기법과 공정 전후 Dummy Wafer 활용으로 기계적 편차를 최소화하고, Pressure·Temp·RF Power 등 미세 변동을 제어하는 절차 수립</li>
+          <li>표준 공정 평가 매뉴얼(SOP)을 제작·배포하여 시료 장착부터 세정·계측까지 전 과정을 정량화하고 팀 내 공유</li>
+          <li>결과: 공정 평가 오차 범위를 ±100Å 이내로 축소하고, 데이터 무결성을 확보해 불필요한 시행착오를 감소</li>
+        </ul>
+        <div class="chip-row">
+          <span class="chip">Etch Rate 표준화</span>
+          <span class="chip">SOP</span>
+          <span class="chip">DOE / Aging</span>
+          <span class="chip">Reproducibility</span>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="proj-tag">VACUUM ENGINEERING</span>
+        <h3>3. Vacuum Line Conductance 개선</h3>
+        <p>
+          NF₃ Plasma 분해 효율 평가 과정에서 FTIR·QMS 간 계측 데이터 불일치 원인을 진공 유동 특성 관점에서
+          분석했습니다. Conductance가 배관 직경의 3제곱에 비례하고 길이에 반비례한다는 원리를 적용하여,
+          100cm 이상의 1/4″ 배관에서 발생하는 Conductance 저하가 주요 병목임을 규명했습니다. 이후 배관 구조를
+          재설계하여 Gas Transport 저항과 F Radical의 Wall Recombination Loss를 최소화하고, FTIR·QMS 계측
+          데이터의 정밀도 및 재현성을 확보했습니다.
+        </p>
+        <div class="chip-row">
+          <span class="chip">진공공학</span>
+          <span class="chip">FTIR / QMS</span>
+          <span class="chip">설비 구조 개선</span>
         </div>
       </div>
       <div class="proj-card reveal">
         <span class="proj-tag">GRADUATE RESEARCH</span>
-        <h3>2. Reverse-Structure Plasma Chamber 연구</h3>
+        <h3>4. Reverse-Structure Plasma Chamber 설계</h3>
         <p style="margin:0 0 4px;">한양대학교 Plasma Electronics Lab 논문 작성 중</p>
         <ul class="point-list" style="margin:0 0 4px;">
           <li>Wafer를 상부 Electrode에 Face-down 방식으로 장착하는 Reverse-Structure Plasma Chamber를 설계·연구하여 Particle Contamination 저감 효과 검증</li>
@@ -590,19 +655,17 @@
         </div>
       </div>
       <div class="proj-card reveal">
-        <span class="proj-tag">VACUUM ENGINEERING</span>
-        <h3>3. 배관 Conductance 개선</h3>
+        <span class="proj-tag">PYTHON · PANDAS</span>
+        <h3>5. AI 활용 기술 : 공정 Data 자동화</h3>
         <p>
-          NF₃ Plasma 분해 효율 평가 과정에서 FTIR·QMS 간 계측 데이터 불일치 원인을 진공 유동 특성 관점에서
-          분석했습니다. Conductance가 배관 직경의 3제곱에 비례하고 길이에 반비례한다는 원리를 적용하여,
-          100cm 이상의 1/4″ 배관에서 발생하는 Conductance 저하가 주요 병목임을 규명했습니다. 이후 배관 구조를
-          재설계하여 Gas Transport 저항과 F Radical의 Wall Recombination Loss를 최소화하고, FTIR·QMS 계측
-          데이터의 정밀도 및 재현성을 확보했습니다.
+          부서별로 상이한 Excel 공정 평가 데이터를 표준화된 데이터베이스로 자동 변환하는 Tool을 개발했습니다.
+          다양한 양식에서 Power, Pressure, Gas, Dissociation Ratio 등 핵심 공정 Parameter를 자동 추출·정규화하고,
+          Parameter별 Trend Graph까지 자동 생성하여 데이터 정리 및 분석 효율을 향상시켰습니다.
         </p>
         <div class="chip-row">
-          <span class="chip">진공공학</span>
-          <span class="chip">FTIR / QMS</span>
-          <span class="chip">설비 구조 개선</span>
+          <span class="chip">Python</span>
+          <span class="chip">Pandas</span>
+          <span class="chip">Excel 자동화</span>
         </div>
       </div>
     </div>
