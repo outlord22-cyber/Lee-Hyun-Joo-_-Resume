@@ -10,19 +10,19 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#F6F7F9;
+    --bg:#F7F8FA;
     --surface:#FFFFFF;
-    --text:#14171C;
-    --text-muted:#5B6270;
-    --line:#E3E5EA;
-    --accent:#7C6FE0;      /* NF3/O2 Remote Plasma - Cleaning */
-    --accent-soft:#EEEBFB;
+    --text:#171A20;
+    --text-muted:#606775;
+    --line:#E5E8EE;
+    --accent:#6759D3;      /* NF3/O2 Remote Plasma - Cleaning */
+    --accent-soft:#F0EEFB;
     --dep:#E0916F;         /* SiH4/H2 Plasma - Deposition */
     --dep-soft:#FBEDE6;
     --etch:#4FB3AE;        /* NF3 Radical - Etching */
     --etch-soft:#E7F5F4;
-    --radius:14px;
-    --maxw:1040px;
+    --radius:16px;
+    --maxw:1080px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -319,6 +319,219 @@
 
   .note{font-size:11.5px; color:var(--text-muted); margin-top:10px; font-family:'IBM Plex Mono', monospace;}
 
+
+
+  /* ===== 2026 refresh: readability + mobile robustness ===== */
+  html{overflow-x:hidden;}
+  body{overflow-x:hidden; font-size:16px; background:linear-gradient(180deg,#FAFBFC 0,#F7F8FA 320px);}
+  img, svg{max-width:100%; height:auto;}
+  .wrap, .nav-inner{width:100%;}
+  .wrap > *, .nav-inner > *, .hero-top > *, .step-row > *, .skill-groups > *,
+  .fab-visual > *, .fab-layer > *, .pps-note > *, .exp-top > *, .bc-row > *{min-width:0;}
+
+  header.nav{
+    background:rgba(250,251,252,.90);
+    border-bottom:1px solid rgba(229,232,238,.92);
+    box-shadow:0 1px 12px rgba(20,23,28,.025);
+  }
+  .nav-inner{padding-top:14px; padding-bottom:14px;}
+  .nav-links{gap:26px; font-weight:500;}
+
+  .hero{padding:76px 0 58px;}
+  .hero-top{grid-template-columns:minmax(0,1fr) auto; gap:40px; align-items:end;}
+  h1.title{font-size:clamp(36px,5vw,52px); letter-spacing:-.035em; margin-bottom:12px;}
+  h1.title .thin{font-size:.44em; line-height:1.45; margin-top:10px; letter-spacing:.01em;}
+  .eyebrow{font-size:12px; letter-spacing:.075em; margin-bottom:14px; max-width:100%; overflow-wrap:anywhere;}
+
+  .business-card{
+    width:248px; top:-10px; border-radius:14px; padding:18px 18px 14px;
+    box-shadow:0 12px 30px rgba(20,23,28,.06);
+  }
+  .business-card .bc-name{font-size:16px;}
+  .business-card .bc-role{font-size:10px; margin-bottom:12px; overflow-wrap:anywhere;}
+  .business-card .bc-row{font-size:11px; gap:12px; align-items:start;}
+  .business-card .bc-row span:last-child{min-width:0; overflow-wrap:anywhere; word-break:break-word;}
+
+  .mini-toc{gap:9px; margin-bottom:24px;}
+  .mini-toc a{font-weight:600; padding:7px 12px; border-radius:9px;}
+
+  .intro-card{
+    padding:30px 32px; margin-bottom:24px; border-radius:18px;
+    border-color:#E7E9EF; box-shadow:0 8px 28px rgba(20,23,28,.045);
+  }
+  .intro-label{color:var(--accent); margin-bottom:20px;}
+  .flow-steps{gap:16px;}
+  .flow-steps li{grid-template-columns:28px minmax(0,1fr); gap:14px;}
+  .flow-steps .flow-num{width:26px; height:26px;}
+  .flow-steps p{font-size:14.5px; line-height:1.78; color:#505765; word-break:keep-all; overflow-wrap:anywhere;}
+
+  .point-list{gap:12px;}
+  .point-list li{font-size:14.5px; line-height:1.72; color:#59606D; overflow-wrap:anywhere;}
+  .point-list li b{font-weight:650;}
+
+  section{padding:72px 0; border-top:1px solid #E8EAF0; scroll-margin-top:76px;}
+  .section-head{margin-bottom:28px; gap:12px;}
+  .section-num{font-size:12px; color:#8A909C;}
+  h2.section-title{font-size:24px; letter-spacing:-.02em;}
+
+  .skill-groups{grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px;}
+  .skill-group{
+    background:var(--surface); border:1px solid var(--line); border-radius:14px;
+    padding:20px 22px; box-shadow:0 6px 20px rgba(20,23,28,.025);
+  }
+  .skill-group h4{font-size:12.5px; font-weight:650; color:#707784; margin-bottom:13px;}
+  .skill-chip-row{gap:7px;}
+  .skill-chip{
+    max-width:100%; font-size:12.5px; line-height:1.35; padding:7px 10px;
+    border-radius:8px; background:#FAFBFC; overflow-wrap:anywhere; word-break:break-word;
+  }
+
+  .track-card, .client-card, .exp-card, .proj-card, .detail-block{
+    box-shadow:0 8px 24px rgba(20,23,28,.035);
+  }
+  .track-card{padding:22px 24px; border-left-width:4px;}
+  .track-card p{line-height:1.72; word-break:keep-all; overflow-wrap:anywhere;}
+
+  .fab-visual{grid-template-columns:minmax(0,420px) minmax(0,1fr); gap:44px;}
+  .fab-svg{min-width:0;}
+  .fab-desc-item p{line-height:1.72; word-break:keep-all; overflow-wrap:anywhere;}
+  .fab-badge{max-width:100%; overflow-wrap:anywhere;}
+
+  .exp-card{padding:32px; border-radius:18px;}
+  .exp-co{font-size:19px; letter-spacing:-.015em;}
+  .exp-desc{font-size:14.5px; line-height:1.75; word-break:keep-all; overflow-wrap:anywhere;}
+  .exp-date{overflow-wrap:anywhere;}
+  .step-row{grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px;}
+  .step{min-width:0; border-radius:12px; padding:16px 16px 14px;}
+  .step .step-tag, .step .step-gas, .step-more{max-width:100%; overflow-wrap:anywhere;}
+  .step-list li{overflow-wrap:anywhere; word-break:keep-all;}
+
+  .detail-block{padding:24px 26px; border-radius:14px;}
+  .detail-tag{display:block; max-width:100%; overflow-wrap:anywhere; line-height:1.55;}
+  .tag-date{display:inline; white-space:normal; overflow-wrap:anywhere;}
+
+  .proj-grid{gap:18px;}
+  .proj-card{padding:28px; border-radius:16px; gap:13px;}
+  .proj-card h3{font-size:18px; line-height:1.48; letter-spacing:-.015em; overflow-wrap:anywhere; word-break:keep-all;}
+  .proj-card p{font-size:14px; line-height:1.75; overflow-wrap:anywhere; word-break:keep-all;}
+  .proj-tag, .proj-date{max-width:100%; overflow-wrap:anywhere;}
+  .proj-date{white-space:normal;}
+
+  .chip-row{gap:7px; min-width:0;}
+  .chip{
+    max-width:100%; min-width:0; font-size:11.5px; line-height:1.35;
+    padding:6px 9px; white-space:normal; overflow-wrap:anywhere; word-break:break-word;
+  }
+  .client-card{padding:22px 24px;}
+  .client-card p{line-height:1.7; word-break:keep-all; overflow-wrap:anywhere;}
+  .client-row{min-width:0;}
+
+  .pps-note{grid-template-columns:auto minmax(0,1fr);}
+  .pps-note .pps-tag{white-space:normal; overflow-wrap:anywhere;}
+  .pps-note p{overflow-wrap:anywhere; word-break:keep-all;}
+
+  .edu-item{grid-template-columns:118px minmax(0,1fr); gap:22px; padding:20px 0;}
+  .edu-item h4{font-size:16px; letter-spacing:-.01em; overflow-wrap:anywhere;}
+  .edu-item p{font-size:14px; line-height:1.72; word-break:keep-all; overflow-wrap:anywhere;}
+
+  /* Prevent any long English token / e-mail / technical label from escaping a card. */
+  .business-card, .intro-card, .skill-group, .track-card, .client-card, .exp-card,
+  .step, .detail-block, .proj-card, .edu-item, .fab-desc-item, .point-list li,
+  .flow-steps p{max-width:100%;}
+
+  @media (max-width:940px){
+    .fab-visual{grid-template-columns:1fr; gap:26px;}
+    .fab-svg{max-width:520px; margin:0 auto; width:100%;}
+  }
+
+  @media (max-width:760px){
+    .wrap, .nav-inner{padding-left:18px; padding-right:18px;}
+    .nav-inner{padding-top:12px; padding-bottom:12px;}
+    .nav-name{font-size:14px;}
+
+    .hero{padding:48px 0 42px;}
+    .hero-top{grid-template-columns:1fr; gap:18px; margin-bottom:18px;}
+    .hero-top .mini-toc{margin-bottom:18px;}
+    .mini-toc{gap:6px;}
+    .mini-toc a{font-size:11.5px; padding:6px 9px;}
+    .eyebrow{font-size:10.5px; line-height:1.5; margin-bottom:12px;}
+    h1.title{font-size:clamp(31px,10vw,40px); line-height:1.12; margin-bottom:4px;}
+    h1.title .thin{font-size:.42em; margin-top:8px; line-height:1.45;}
+
+    .business-card{width:100%; top:0; padding:16px;}
+    .business-card .bc-row{
+      display:grid; grid-template-columns:70px minmax(0,1fr); gap:10px;
+      font-size:11px; line-height:1.45;
+    }
+    .business-card .bc-row span:first-child{white-space:nowrap;}
+    .business-card .bc-row span:last-child{text-align:left; overflow-wrap:anywhere; word-break:break-word;}
+
+    .intro-card{padding:20px 18px; border-radius:14px; margin-bottom:20px;}
+    .intro-label{font-size:11px; margin-bottom:16px;}
+    .flow-steps{gap:14px;}
+    .flow-steps li{grid-template-columns:24px minmax(0,1fr); gap:10px;}
+    .flow-steps .flow-num{width:23px; height:23px; font-size:10.5px;}
+    .flow-steps p{font-size:13.5px; line-height:1.72; word-break:normal;}
+    .point-list{gap:10px; margin-bottom:20px;}
+    .point-list li{font-size:13.5px; line-height:1.68; padding-left:15px; word-break:normal;}
+
+    section{padding:50px 0;}
+    .section-head{margin-bottom:22px;}
+    h2.section-title{font-size:21px;}
+    .section-num{font-size:11px;}
+
+    .skill-groups{grid-template-columns:1fr; gap:12px;}
+    .skill-group{padding:17px 16px;}
+    .skill-chip{font-size:11.5px; padding:6px 8px;}
+
+    .track-card{padding:18px; margin-bottom:22px;}
+    .track-card p{font-size:13px; line-height:1.7; word-break:normal;}
+    .fab-visual{gap:22px; margin-bottom:22px;}
+    .fab-desc{gap:16px;}
+    .fab-desc-item p{font-size:13px; word-break:normal;}
+    .client-card{padding:18px;}
+    .client-card p{font-size:13px !important; word-break:normal;}
+
+    .exp-card{padding:20px 18px; border-radius:14px;}
+    .exp-top{display:block;}
+    .exp-co{font-size:17px; line-height:1.45; overflow-wrap:anywhere;}
+    .exp-role{font-size:13.5px; margin-top:3px;}
+    .exp-date{font-size:11.5px; white-space:normal; margin-top:8px; display:block;}
+    .exp-desc{font-size:13.5px; line-height:1.72; word-break:normal;}
+    .step-row{grid-template-columns:1fr; gap:10px;}
+    .step{padding:15px;}
+    .step-list li{font-size:12.5px; line-height:1.55; word-break:normal;}
+
+    .detail-block{padding:18px 16px;}
+    .detail-tag{font-size:11.5px;}
+    .detail-list li{font-size:12.5px; word-break:normal;}
+    .tag-date{display:block; margin-left:0; margin-top:4px; font-size:10px;}
+
+    .proj-card{padding:20px 18px; border-radius:14px;}
+    .proj-tag{font-size:10.5px; line-height:1.45;}
+    .proj-card h3{font-size:16px; line-height:1.5; word-break:normal;}
+    .proj-date{display:block; margin-left:0; margin-top:5px; font-size:10.5px; line-height:1.45;}
+    .proj-card p{font-size:13px; line-height:1.7; word-break:normal;}
+    .chip{font-size:10.5px; padding:5px 8px;}
+
+    .pps-note{grid-template-columns:1fr; padding:17px; gap:8px;}
+    .pps-note .pps-tag{font-size:10.5px;}
+    .pps-note p{font-size:13px; word-break:normal;}
+
+    .edu-item{grid-template-columns:1fr; gap:5px; padding:17px 0;}
+    .edu-date{font-size:11.5px;}
+    .edu-date br{display:none;}
+    .edu-item h4{font-size:15px;}
+    .edu-item p{font-size:13px; line-height:1.68; word-break:normal;}
+  }
+
+  @media (max-width:380px){
+    .wrap, .nav-inner{padding-left:14px; padding-right:14px;}
+    .mini-toc a{font-size:10.8px; padding:5px 8px;}
+    .business-card .bc-row{grid-template-columns:62px minmax(0,1fr);}
+    .intro-card, .exp-card, .proj-card{padding-left:15px; padding-right:15px;}
+  }
+
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
     .reveal{opacity:1; transform:none; transition:none;}
@@ -366,9 +579,9 @@
     <div class="intro-card">
       <span class="intro-label">INTRODUCTION</span>
       <ol class="flow-steps">
-        <li><span class="flow-num">1</span><p>Plasma를 Source → Gas 분해·수송 → Chamber 반응 → Wafer/공정 결과가 이어지는 하나의 시스템으로 이해합니다.</p></li>
-        <li><span class="flow-num">2</span><p>문제가 발생하면 Gas Decomposition · Electrical · Thermal · Stability · Process Result로 원인을 나누고, QMS(RGA)·FTIR·OES·Octiv·Ellipsometer 등 계측 데이터로 가설을 하나씩 검증합니다.</p></li>
-        <li><span class="flow-num">3</span><p>RPS 평가, 고객사 Troubleshooting, Cleaning·Deposition·Etching, Vacuum Line 개선 경험을 바탕으로 Source–Equipment–Process를 연결해 Root Cause를 찾고 재현 가능한 조건으로 정리하는 Plasma Engineer를 지향합니다.</p></li>
+        <li><span class="flow-num">1</span><p>Plasma Process는 Gas precursor의 특성부터 Plasma 내 반응, Radical과 Ion의 생성 및 제어, 그리고 Wafer 위에서의 최종 결과까지 연결하여 이해해야 한다고 생각합니다.</p></li>
+        <li><span class="flow-num">2</span><p>원하는 결과가 나오지 않을 경우에는 공정 결과를 기반으로 원인을 분석하고, Gas와 Plasma의 반응을 다시 예측하여 Process Recipe를 최적화할 수 있어야 합니다.</p></li>
+        <li><span class="flow-num">3</span><p>저는 이러한 과정에 대한 이해와 경험을 바탕으로, Plasma 현상을 공정 결과로 연결하고 문제를 해결할 수 있는 Plasma Process Engineer가 되고자 합니다.</p></li>
       </ol>
     </div>
     <ul class="point-list">
@@ -785,7 +998,7 @@
         <div class="edu-date">2020.03 —<br>2022.08</div>
         <div>
           <h4>한국공학대학교 · 나노반도체공학과</h4>
-          <p>반도체공정 · 반도체물리학 · 박막공학 · 반도체소자공학 · 반도체응용기기설계 등을 집중 이수하며 반도체 공정·장비 기반을 구축했습니다.</p>
+          <p>3학년 편입 후 반도체공정 · 반도체물리학 · 박막공학 · 반도체소자공학 · 반도체응용기기설계 등을 집중 이수하며 반도체 공정·장비 기반을 구축했습니다.</p>
         </div>
       </div>
     </div>
